@@ -1,0 +1,11 @@
+check,expected,actual,passed
+regression_harris_row_count,1709,1709,True
+regression_total_level_rows,1,1,True
+regression_two_digit_rows,20,20,True
+duplicate_keys,0,0,True
+unknown_naics_levels,0,0,True
+independent_total_establishments,111215,111215,True
+independent_total_employment,2182164,2182164,True
+total_est_vs_size_classes,est=111215,size_sum=111215,True
+n1000_vs_detail_breakdown,135,135,True
+two_digit_est_sum_vs_county_total,111215,111215,True

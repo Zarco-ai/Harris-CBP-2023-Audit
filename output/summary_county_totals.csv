@@ -1,0 +1,2 @@
+data_year,county_name,fips_full,naics,naics_level,est,emp,qp1,ap,qp1_usd,ap_usd,emp_nf,emp_noise_label,qp1_nf,qp1_noise_label,ap_nf,ap_noise_label,n_lt_5,n5_9,n10_19,n20_49,n50_99,n100_249,n250_499,n500_999,n1000,n1000_1,n1000_2,n1000_3,n1000_4
+2023,"Harris County, TX",48201,------,total,111215,2182164,49768877,175822349,49768877000,175822349000,G,low,G,low,G,low,59476.0,18915.0,13927.0,11103.0,4173.0,2502.0,714.0,270.0,135.0,51.0,51.0,21.0,12.0

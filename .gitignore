@@ -1,0 +1,20 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Raw Census source file (107 MB, over GitHub's 100 MB limit).
+# Download from https://www.census.gov/programs-surveys/cbp/data/datasets.html
+county_files.txt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Tooling caches
+.mplconfig/
+.claude/
+
+# macOS
+.DS_Store

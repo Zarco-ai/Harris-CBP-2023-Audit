@@ -1,0 +1,37 @@
+Section,Industry,NAICS code,Detail level,Establishments,Employment,Q1 payroll,Annual payroll,Employment quality,Payroll quality
+County total,All industries,------,total,"111,215","2,182,164","$49,768,877,000","$175,822,349,000",low,low
+Sector (2-digit NAICS),62 — Health Care & Social Assistance,62----,2-digit,"13,458","303,127",,"$20,502,553,000",low,low
+Sector (2-digit NAICS),72 — Accommodation & Food Services,72----,2-digit,"10,973","232,610",,"$5,754,227,000",low,low
+Sector (2-digit NAICS),44 — Retail Trade,44----,2-digit,"13,613","213,745",,"$8,116,875,000",low,low
+Sector (2-digit NAICS),54 — Professional & Technical Services,54----,2-digit,"15,597","205,091",,"$24,139,510,000",low,low
+Sector (2-digit NAICS),23 — Construction,23----,2-digit,"7,718","166,110",,"$13,328,731,000",low,low
+Sector (2-digit NAICS),31 — Manufacturing,31----,2-digit,"4,126","154,890",,"$13,129,771,000",low,low
+Sector (2-digit NAICS),56 — Administrative & Support Services,56----,2-digit,"5,608","151,894",,"$8,293,542,000",low,low
+Sector (2-digit NAICS),42 — Wholesale Trade,42----,2-digit,"7,109","128,623",,"$12,712,478,000",low,low
+Sector (2-digit NAICS),48 — Transportation & Warehousing,48----,2-digit,"4,172","122,191",,"$9,082,172,000",medium,medium
+Sector (2-digit NAICS),55 — Management of Companies,55----,2-digit,960,"110,088",,"$20,905,249,000",low,medium
+Sector (2-digit NAICS),81 — Other Services,81----,2-digit,"8,802","93,464",,"$4,583,609,000",low,low
+Sector (2-digit NAICS),52 — Finance & Insurance,52----,2-digit,"6,760","81,043",,"$12,628,605,000",low,low
+Sector (2-digit NAICS),61 — Educational Services,61----,2-digit,"1,476","54,606",,"$3,667,543,000",low,medium
+Sector (2-digit NAICS),53 — Real Estate & Rental,53----,2-digit,"6,480","44,452",,"$3,626,480,000",low,low
+Sector (2-digit NAICS),51 — Information,51----,2-digit,"1,596","35,856",,"$4,028,082,000",low,low
+Sector (2-digit NAICS),21 — Mining & Oil/Gas Extraction,21----,2-digit,869,"33,866",,"$6,798,950,000",low,low
+Sector (2-digit NAICS),"71 — Arts, Entertainment & Recreation",71----,2-digit,"1,327","31,458",,"$1,785,157,000",low,low
+Sector (2-digit NAICS),22 — Utilities,22----,2-digit,366,"18,687",,"$2,722,048,000",medium,medium
+Sector (2-digit NAICS),99 — Unclassified,99----,2-digit,162,200,,"$6,968,000",medium,low
+Sector (2-digit NAICS),"11 — Agriculture, Forestry, Fishing & Hunting",11----,2-digit,43,163,,"$9,799,000",medium,medium
+Top 15 industries by employment,551114 — Corporate/Regional Managing Offices,551114,6-digit,827,"107,375",,"$20,576,391,000",low,
+Top 15 industries by employment,722511 — Full-Service Restaurants,722511,6-digit,"3,574","92,715",,"$2,476,722,000",low,
+Top 15 industries by employment,722513 — Limited-Service Restaurants,722513,6-digit,"3,958","87,661",,"$1,740,357,000",low,
+Top 15 industries by employment,622110 — General Medical & Surgical Hospitals,622110,6-digit,49,"78,138",,"$6,702,174,000",medium,
+Top 15 industries by employment,541330 — Engineering Services,541330,6-digit,"1,484","48,751",,"$6,626,767,000",low,
+Top 15 industries by employment,445110 — Supermarkets & Grocery Stores,445110,6-digit,805,"42,577",,"$1,255,931,000",low,
+Top 15 industries by employment,621111 — Offices of Physicians,621111,6-digit,"3,888","40,528",,"$4,588,497,000",low,
+Top 15 industries by employment,561320 — Temporary Help Services,561320,6-digit,751,"37,772",,"$1,967,965,000",low,
+Top 15 industries by employment,621610 — Home Health Care Services,621610,6-digit,721,"36,855",,"$881,557,000",low,
+Top 15 industries by employment,622310 — Specialty Hospitals,622310,6-digit,16,"29,332",,"$3,351,534,000",high,
+Top 15 industries by employment,541110 — Offices of Lawyers,541110,6-digit,"3,182","24,858",,"$3,635,864,000",low,
+Top 15 industries by employment,561720 — Janitorial Services,561720,6-digit,580,"22,491",,"$618,642,000",low,
+Top 15 industries by employment,813110 — Religious Organizations,813110,6-digit,"1,669","22,438",,"$690,681,000",low,
+Top 15 industries by employment,611310 — Colleges & Universities,611310,6-digit,42,"22,145",,"$2,129,595,000",low,
+Top 15 industries by employment,452311 — Warehouse Clubs & Supercenters,452311,6-digit,82,"21,379",,"$741,700,000",medium,

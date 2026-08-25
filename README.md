@@ -1,5 +1,7 @@
 # Harris County Business Patterns — 2023
 
+![tests](https://github.com/Zarco-ai/Harris-CBP-2023-Audit/actions/workflows/tests.yml/badge.svg)
+
 A cleaned, validated analysis of the U.S. Census Bureau's County Business
 Patterns data for Harris County, Texas (FIPS 48201) — 1,709 industry records
 covering 111,215 business establishments.

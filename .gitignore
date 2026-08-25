@@ -16,7 +16,6 @@ __pycache__/
 # Tooling caches
 .mplconfig/
 .claude/
-.github/
 
 # macOS
 .DS_Store

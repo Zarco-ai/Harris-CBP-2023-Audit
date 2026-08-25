@@ -181,6 +181,11 @@ every 824.
 (213,745). Professional & Technical Services carries the highest total annual
 payroll — $24.1B on 205,091 employees.
 
+![Horizontal bar chart of 2023 employment across all 20 two-digit NAICS sectors in Harris County, ranging from Health Care & Social Assistance at 303,127 down to Agriculture at 163. Bars for Utilities and Transportation & Warehousing are outlined to mark medium-noise Census estimates.](output/charts/sector_employment.png)
+
+*All 20 sectors sum to 2,182,164 — the county total verified against the
+Census API. Outlined bars carry a medium-noise flag; see below.*
+
 Payroll per employee tells a different story than payroll alone. Mining &
 Oil/Gas Extraction leads at roughly $200,800 per employee on only 33,866
 workers, followed by Management of Companies ($189,900) and Finance &
@@ -235,6 +240,12 @@ Two consequences are reflected throughout this project:
    with a footnote. A chart that draws a `J`-flagged value with the same
    visual confidence as a `G`-flagged one is misleading even when the number
    is correctly transcribed.
+
+![Horizontal bar chart of the top 15 Harris County industries by 2023 employment, led by Corporate/Regional Managing Offices at 107,375. Specialty Hospitals is drawn with diagonal hatching to mark a high-noise estimate; General Medical & Surgical Hospitals and Warehouse Clubs & Supercenters are outlined to mark medium noise.](output/charts/top_industries_employment.png)
+
+*The hatched bar is 622310 — Specialty Hospitals, where Census injected 5% or
+more noise. It is the tenth-largest employer in the county and the least
+certain figure on the chart, and the encoding says so at a glance.*
 
 Establishment counts (`est`) carry no noise flag and are exact — which is why
 the size-distribution chart has no noise annotation.

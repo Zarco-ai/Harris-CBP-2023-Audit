@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from cbp_schema import (
+from pipeline.cbp_schema import (
     ALL_SIZE_CLASS_COLUMNS,
     BASELINE_HARRIS_ROW_COUNT,
     BASELINE_TOTAL_ROWS,
@@ -33,8 +33,8 @@ from cbp_schema import (
     parse_naics_level,
 )
 
-PROJECT_DIR = Path(__file__).resolve().parent
-RAW_FILE = PROJECT_DIR / "county_files.txt"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+RAW_FILE = PROJECT_DIR / "data" / "county_files.txt"
 OUTPUT_DIR = PROJECT_DIR / "output"
 CLEAN_OUTPUT = OUTPUT_DIR / "harris_cbp_2023_clean.csv"
 QA_OUTPUT = OUTPUT_DIR / "harris_cbp_2023_data_quality.csv"

@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from cbp_schema import (
+from pipeline.cbp_schema import (
     ALL_SIZE_CLASS_COLUMNS,
     NAICS_LEVEL_TOTAL,
     NOISE_FLAG_COLUMNS,
@@ -16,7 +16,7 @@ from cbp_schema import (
     SIZE_CLASS_COLUMNS,
 )
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_DIR / "output"
 CLEAN_INPUT = OUTPUT_DIR / "harris_cbp_2023_clean.csv"
 

@@ -10,9 +10,9 @@ from pathlib import Path
 import requests
 from dotenv import load_dotenv
 
-from cbp_schema import INDEPENDENT_HARRIS_TOTAL_EMP, INDEPENDENT_HARRIS_TOTAL_EST
+from pipeline.cbp_schema import INDEPENDENT_HARRIS_TOTAL_EMP, INDEPENDENT_HARRIS_TOTAL_EST
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(__file__).resolve().parent.parent
 ENV_FILE = PROJECT_DIR / ".env"
 API_URL = "https://api.census.gov/data/2023/cbp"
 INDEPENDENT_HARRIS_TOTAL_PAYANN = 175_822_349

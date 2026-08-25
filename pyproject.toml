@@ -1,0 +1,11 @@
+[tool.pytest.ini_options]
+# Put the repo root on sys.path so tests can `import pipeline.cbp_schema`
+# without the project needing to be pip-installed.
+pythonpath = ["."]
+testpaths = ["tests"]
+# -ra shows a summary of everything that wasn't a plain pass (skips included),
+# so skipped tests can never quietly look like passing ones.
+addopts = "-ra --strict-markers"
+markers = [
+    "realdata: needs output/harris_cbp_2023_clean.csv; skipped if the pipeline hasn't been run",
+]

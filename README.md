@@ -247,23 +247,29 @@ Requires Python 3.11+, `pandas`, `matplotlib`, `seaborn`, `requests`, and
 `python-dotenv`.
 
 ```bash
-# 1. Download the 2023 county file and save as county_files.txt
+pip install -r requirements.txt
+
+# 1. Download the 2023 county file and save as data/county_files.txt
 #    https://www2.census.gov/programs-surveys/cbp/datasets/2023/cbp23co.zip
 
 # 2. Clean and run quality checks
-python clean_harris_cbp.py
+python -m pipeline.clean_harris_cbp
 
 # 3. Build summary tables
-python summarize_harris_cbp.py
+python -m pipeline.summarize_harris_cbp
 
 # 4. Build charts
-python visualize_harris_cbp.py
+python -m pipeline.visualize_harris_cbp
 
 # 5. Verify against the Census API
 #    Free key: api.census.gov/data/key_signup.html
 export CENSUS_API_KEY=your_key_here
-python verify_full.py
+python -m verification.verify_full
 ```
+
+Run these from the repository root with `-m`. The stages are packages, so
+`python pipeline/clean_harris_cbp.py` would put `pipeline/` on the import path
+instead of the root and fail to resolve `pipeline.cbp_schema`.
 
 `verify_full.py` reads the key from the environment, so the `export` must
 happen in the same shell session (IDE run configurations do not inherit it).
@@ -272,13 +278,26 @@ happen in the same shell session (IDE run configurations do not inherit it).
 ## Project structure
 
 ```
-cbp_schema.py              column definitions, NAICS parsing, constants
-clean_harris_cbp.py        filter to Harris County, clean, run QA
-summarize_harris_cbp.py    level-scoped summary tables
-visualize_harris_cbp.py    charts with noise encoding
-verify.py                  county totals vs the Census API (loads .env)
-verify_full.py             row-level validation of all 1,709 records
-record_layout_2023.txt     Census data dictionary — the authority on field meaning
+pipeline/
+├── cbp_schema.py              column definitions, NAICS parsing, constants
+├── clean_harris_cbp.py        filter to Harris County, clean, run QA
+├── summarize_harris_cbp.py    level-scoped summary tables
+└── visualize_harris_cbp.py    charts with noise encoding
+
+verification/
+├── verify.py                  county totals vs the Census API (loads .env)
+└── verify_full.py             row-level validation of all 1,709 records
+
+tests/
+├── conftest.py                shared fixtures
+├── test_schema.py             NAICS parsing and noise-flag mapping
+├── test_cleaning.py           type coercion, derived columns, the QA gate
+├── test_summaries.py          level scoping and the size-class regression test
+└── test_invariants.py         reconciliation against the real output
+
+data/
+├── county_files.txt           raw CBP county file (gitignored — 107 MB)
+└── record_layout_2023.txt     Census data dictionary — the authority on field meaning
 
 output/
 ├── harris_cbp_2023_clean.csv          1,709 cleaned rows
@@ -292,6 +311,37 @@ output/
 ├── summary_size_1000_detail.csv       the 1,000+ drill-down, kept separate
 └── charts/                            5 PNGs
 ```
+
+## Tests
+
+```bash
+pytest              # 61 tests, ~0.2s
+pytest -m realdata  # only the checks that run against the real output
+```
+
+Most of the suite runs on a four-row synthetic frame rather than the real file,
+so it is fast, deterministic, and readable — when a test fails you see the
+numbers that broke it. The `realdata` tests exercise the genuine 1,709-row
+output and skip cleanly on a fresh clone, where neither the 107 MB source file
+nor `output/` exists.
+
+The suite is built around one idea: **encode the bugs you already found so they
+cannot come back.** Both documented defects have dedicated tests.
+
+- `test_N_sentinel_becomes_missing_not_zero` pins the missing-vs-zero
+  invariant. Turning `"N"` into `0` converts "we won't tell you" into "there
+  are none", and every total still computes — which is precisely what makes it
+  worth a test.
+- `test_size_class_check_fails_when_the_data_does_not_reconcile` corrupts a
+  bucket on purpose and asserts the QA gate returns `passed: False`. The
+  original defect was a check that reported a real discrepancy and called it a
+  pass. This test makes that class of bug impossible to reintroduce quietly.
+- `TestSizeDistributionDoubleCount` is a regression test for the double count
+  itself: nine buckets, not thirteen, and percentages that cannot exceed 100%.
+
+Verified by mutation. Reintroducing the `"N"` → `0` bug fails exactly one test;
+reintroducing the size-class double count fails five across three files. A test
+you have never watched fail is not yet evidence of anything.
 
 ### Design notes
 

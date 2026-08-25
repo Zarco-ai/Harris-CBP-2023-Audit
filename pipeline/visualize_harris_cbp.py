@@ -9,13 +9,15 @@ from collections.abc import Callable
 from pathlib import Path
 
 # Use a project-local matplotlib config dir so font/cache writes work in restricted environments.
-os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig"))
+os.environ.setdefault(
+    "MPLCONFIGDIR", str(Path(__file__).resolve().parent.parent / ".mplconfig")
+)
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-from summarize_harris_cbp import (
+from pipeline.summarize_harris_cbp import (
     build_county_totals,
     build_sector_summary,
     build_size_distribution,
@@ -23,7 +25,7 @@ from summarize_harris_cbp import (
     load_clean_data,
 )
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_DIR / "output"
 CLEAN_INPUT = OUTPUT_DIR / "harris_cbp_2023_clean.csv"
 READABLE_TABLE = OUTPUT_DIR / "harris_cbp_2023_readable.csv"

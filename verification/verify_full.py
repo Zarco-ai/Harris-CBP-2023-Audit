@@ -2,12 +2,16 @@
 """Verify every row of the cleaned 2023 file against the Census API."""
 
 import os
+from pathlib import Path
+
 import requests
 import pandas as pd
-from cbp_schema import naics_digits, SIZE_CLASS_COLUMNS
+from pipeline.cbp_schema import naics_digits, SIZE_CLASS_COLUMNS
 
 KEY = os.environ["CENSUS_API_KEY"]
 BASE = "https://api.census.gov/data/2023/cbp"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+CLEAN_FILE = PROJECT_DIR / "output" / "harris_cbp_2023_clean.csv"
 
 
 def fetch(params):
@@ -21,7 +25,7 @@ def fetch(params):
 
 
 # ---------------------------------------------------------------- setup
-mine = pd.read_csv("output/harris_cbp_2023_clean.csv", dtype={"naics": str})
+mine = pd.read_csv(CLEAN_FILE, dtype={"naics": str})
 mine["key"] = mine["naics"].map(naics_digits).replace({"all": "00"})
 
 
